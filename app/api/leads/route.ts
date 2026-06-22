@@ -1,57 +1,33 @@
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "@/lib/supabase";
 import { sendEmail } from "@/lib/email";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    const data = await req.json();
 
-    // 1. Save lead to Supabase
+    // DEBUG (temporary - remove after fix)
+    console.log("SUPABASE_URL:", process.env.SUPABASE_URL);
+    console.log("SUPABASE_KEY exists:", !!process.env.SUPABASE_KEY);
+
     const { error } = await supabase.from("leads").insert([
       {
-        name: body.name,
-        phone: body.phone,
-        email: body.email,
-        message: body.message,
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+        message: data.message,
       },
     ]);
 
-    if (error) {
-      throw error;
-    }
+    if (error) throw error;
 
-    // 2. Send Email notification
-    await sendEmail(body);
+    await sendEmail(data);
 
-    // 3. WhatsApp alert link (manual click automation)
-    const message = `📢 New Lead Alert:
-Name: ${body.name}
-Phone: ${body.phone}
-Email: ${body.email}
-Message: ${body.message}`;
-
-    const whatsappURL = `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(
-      message
-    )}`;
-
-    console.log("WhatsApp Alert Link:", whatsappURL);
-
-    return Response.json({
-      success: true,
-      whatsappURL,
-    });
+    return Response.json({ success: true });
   } catch (error) {
-    console.error("API Error:", error);
+    console.error(error);
 
     return Response.json(
-      {
-        success: false,
-        message: "Failed to save lead",
-      },
+      { success: false, message: "Something went wrong" },
       { status: 500 }
     );
   }
