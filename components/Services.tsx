@@ -1,55 +1,47 @@
+import GlassCard from "@/components/GlassCard";
+
 export default function Services() {
   const services = [
     {
-      title: "Software Development",
-      description: "Custom web applications and SaaS platforms.",
+      title: "AI Automation Systems",
+      desc: "Workflows, agents, and intelligent business automation.",
     },
     {
-      title: "AI Automation",
-      description: "AI agents, workflows and chatbots.",
+      title: "SaaS Development",
+      desc: "Scalable cloud applications and platforms.",
+    },
+    {
+      title: "Performance Marketing",
+      desc: "High-ROI paid ads and growth campaigns.",
     },
     {
       title: "Cloud Infrastructure",
-      description: "Hosting, deployment and scalability.",
+      desc: "Deployment, hosting, and scaling systems.",
     },
     {
-      title: "SEO & Content",
-      description: "Long-term organic growth systems.",
+      title: "SEO Systems",
+      desc: "Long-term organic growth engines.",
     },
     {
-      title: "Paid Advertising",
-      description: "Google Ads and Meta Ads campaigns.",
-    },
-    {
-      title: "Analytics & Reporting",
-      description: "Business intelligence dashboards.",
+      title: "Analytics Dashboards",
+      desc: "Data-driven decision systems.",
     },
   ];
 
   return (
-    <section className="py-24 bg-slate-900">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-5xl font-bold text-center mb-4">
-          Our Growth Ecosystem
+    <section className="py-28 px-6">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold text-center">
+          A complete growth engineering stack
         </h2>
 
-        <p className="text-center text-slate-400 mb-16">
-          Technology, infrastructure and marketing under one roof.
+        <p className="text-center text-slate-400 mt-4">
+          Not services. Systems that scale businesses.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="bg-slate-800 border border-slate-700 hover:border-blue-500 transition-all p-8 rounded-2xl"
-            >
-              <h3 className="text-xl font-semibold mb-4">
-                {service.title}
-              </h3>
-              <p className="text-slate-400">
-                {service.description}
-              </p>
-            </div>
+        <div className="mt-14 grid md:grid-cols-3 gap-6">
+          {services.map((s) => (
+            <GlassCard key={s.title} title={s.title} desc={s.desc} />
           ))}
         </div>
       </div>
