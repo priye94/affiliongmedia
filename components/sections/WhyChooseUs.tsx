@@ -28,9 +28,8 @@ const items = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-32">
+    <section className="py-24 md:py-32">
 
-      {/* SECTION WRAPPER REVEAL */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -54,30 +53,29 @@ export default function WhyChooseUs() {
               <motion.div
                 key={item.title}
 
-                /* SYSTEM 5 — STAGGER REVEAL */
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{
                   duration: 0.5,
-                  delay: i * 0.12, // 🔥 stagger timing system
-                  ease: "easeOut",
+                  delay: i * 0.12,
                 }}
 
-                whileHover={{ y: -6, scale: 1.02 }}
+                whileHover={{ y: -4 }}
 
                 className="
-                  p-6 rounded-2xl
-                  border border-white/10
                   bg-white/5
+                  border border-white/10
                   backdrop-blur-xl
+                  rounded-2xl
+                  p-6 md:p-8
                   hover:border-cyan-400/30
-                  transition-all duration-300
+                  transition
                 "
               >
                 <Icon className="text-cyan-400 text-3xl mb-4" />
 
-                <h3 className="font-semibold text-lg text-white">
+                <h3 className="text-lg font-semibold text-white">
                   {item.title}
                 </h3>
 

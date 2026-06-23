@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* =========================
-   BASE RESET + SMOOTH UX
+   BASE SYSTEM
 ========================= */
 
 html {
@@ -14,18 +14,31 @@ body {
   overflow-x: hidden;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* =========================
-   TEXT SYSTEM (PHASE 10)
+   TYPOGRAPHY SYSTEM (SAAS GRADE)
 ========================= */
 
-.text-muted {
-  color: rgba(255, 255, 255, 0.6);
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
-.text-accent {
-  color: #22d3ee;
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
 }
 
 /* =========================
@@ -34,6 +47,16 @@ body {
 
 .section-dark {
   background: #050816;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .section-gradient {
@@ -50,42 +73,55 @@ body {
 }
 
 /* =========================
-   GLASS CARD SYSTEM (GLOBAL STANDARD)
+   GLASS SYSTEM (HEROLIYA STYLE)
 ========================= */
 
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  border-radius: 16px;
-  transition: all 0.3s ease;
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  transition: all 0.25s ease;
 }
 
 .glass:hover {
-  border-color: rgba(34, 211, 238, 0.3);
-  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(34, 211, 238, 0.35);
+  transform: translateY(-3px);
 }
 
 /* =========================
-   BUTTON SYSTEM (MAGNETIC BASE STYLE)
+   BUTTON SYSTEM
 ========================= */
 
 .btn-primary {
   background: linear-gradient(135deg, #22d3ee, #3b82f6);
   color: black;
   font-weight: 500;
-  padding: 12px 20px;
+  padding: 12px 22px;
   border-radius: 999px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.15);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px) scale(1.03);
-  opacity: 0.95;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 0 45px rgba(34, 211, 238, 0.25);
 }
 
 /* =========================
-   ANIMATION HELPERS
+   TEXT HELPERS
+========================= */
+
+.text-muted {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.text-accent {
+  color: #22d3ee;
+}
+
+/* =========================
+   ANIMATIONS
 ========================= */
 
 .fade-up {
@@ -104,7 +140,7 @@ body {
 }
 
 /* =========================
-   SELECTION COLOR
+   SELECTION
 ========================= */
 
 ::selection {

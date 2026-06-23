@@ -23,33 +23,38 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-5">
       
       <motion.nav
         animate={{
           scale: scrolled ? 0.96 : 1,
-          padding: scrolled ? "10px 18px" : "14px 22px",
+          y: scrolled ? 0 : 0,
         }}
-        transition={{ duration: 0.25 }}
+        transition={{
+          type: "spring",
+          stiffness: 120,
+          damping: 18,
+        }}
         className="
-          mt-5 flex items-center justify-between
-          w-[92%] max-w-6xl
+          glass
+          flex items-center justify-between
+          w-[92%] max-w-[1050px]
+          px-6 py-3
           rounded-full
-          border border-white/10
-          bg-[#0b1224]/70
-          backdrop-blur-xl
-          shadow-[0_10px_40px_rgba(0,0,0,0.45)]
-          transition-all
+          backdrop-blur-2xl
         "
       >
 
         {/* LOGO */}
-        <Link href="/" className="font-semibold text-white tracking-tight">
+        <Link
+          href="/"
+          className="text-white font-semibold tracking-tight text-[15px]"
+        >
           Affilion G Media
         </Link>
 
         {/* LINKS */}
-        <div className="hidden md:flex gap-8 text-sm">
+        <div className="hidden md:flex items-center gap-7 text-[13.5px]">
           {navItems.map((item) => {
             const active = pathname === item.href;
 
@@ -57,16 +62,19 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`
-                  relative transition
-                  ${active ? "text-white" : "text-slate-400 hover:text-white"}
-                `}
+                className="relative group text-slate-300 hover:text-white transition"
               >
                 {item.name}
 
-                {active && (
-                  <span className="absolute -bottom-2 left-0 right-0 h-[2px] bg-cyan-400 rounded-full" />
-                )}
+                {/* underline animation */}
+                <span
+                  className={`
+                    absolute left-0 -bottom-1 h-[1.5px]
+                    bg-cyan-400 rounded-full
+                    transition-all duration-300
+                    ${active ? "w-full" : "w-0 group-hover:w-full"}
+                  `}
+                />
               </Link>
             );
           })}
@@ -78,10 +86,11 @@ export default function Navbar() {
           className="
             hidden md:flex
             px-4 py-2
+            text-[13px]
             rounded-full
             bg-gradient-to-r from-cyan-500 to-blue-500
             text-black font-medium
-            hover:scale-[1.03]
+            hover:scale-[1.04]
             transition
           "
         >

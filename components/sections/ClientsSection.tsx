@@ -11,19 +11,38 @@ export default function ClientsSection() {
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+
           {[1, 2, 3, 4, 5].map((item) => (
             <div
               key={item}
-              className="bg-white rounded-xl p-6"
+              className="
+                bg-white/5
+                border border-white/10
+                backdrop-blur-xl
+                rounded-2xl
+                p-6
+                flex items-center justify-center
+                transition
+                hover:border-cyan-400/30
+                hover:scale-[1.03]
+              "
             >
               <Image
-                src={`/logos/logo${item}.svg`}
+                src={`/logos/logo${item}.jpg`}
                 alt="logo"
-                width={150}
+                width={140}
                 height={60}
+                className="
+                  grayscale
+                  opacity-70
+                  hover:grayscale-0
+                  hover:opacity-100
+                  transition
+                "
               />
             </div>
           ))}
+
         </div>
 
       </Container>
