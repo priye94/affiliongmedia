@@ -7,23 +7,31 @@ import WhatsApp from "@/components/WhatsApp";
 export const metadata: Metadata = {
   metadataBase: new URL("https://affiliongmedia.com"),
 
-  title: "Affilion G Media | Advertising & Digital Marketing Agency",
+  title: {
+    default:
+      "Affilion G Media | AI-Powered Digital Growth & Technology Solutions",
+    template: "%s | Affilion G Media",
+  },
+
   description:
-    "Affilion G Media is a premium advertising and digital marketing agency specializing in branding, social media marketing, SEO, and business growth strategies.",
+    "We build custom software, AI automation systems, cloud infrastructure, and performance marketing campaigns that help businesses scale faster.",
 
   keywords: [
-    "advertising agency",
-    "digital marketing",
-    "branding",
-    "SEO",
-    "social media marketing",
+    "AI marketing company",
+    "software development agency",
+    "SaaS development",
+    "AI automation",
+    "digital growth company",
+    "performance marketing",
+    "SEO services",
+    "cloud infrastructure",
     "Affilion G Media",
   ],
 
   openGraph: {
-    title: "Affilion G Media | Advertising & Digital Marketing Agency",
+    title: "AI-Powered Digital Growth & Technology Solutions",
     description:
-      "We build brands that grow businesses with powerful digital marketing strategies.",
+      "Custom software, AI automation, cloud infrastructure, and performance marketing systems to scale modern businesses.",
     url: "https://affiliongmedia.com",
     siteName: "Affilion G Media",
     type: "website",
@@ -32,17 +40,22 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Affilion G Media",
+        alt: "Affilion G Media - AI Growth & Technology Company",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Affilion G Media | Advertising & Digital Marketing Agency",
+    title: "AI-Powered Digital Growth & Technology Solutions",
     description:
-      "We build brands that grow businesses with powerful digital marketing strategies.",
+      "We combine software, AI automation, infrastructure, and marketing to scale businesses.",
     images: ["/og-image.jpg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -53,9 +66,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-950 text-white">
+      <body className="bg-[#050816] text-white antialiased">
         <Navbar />
-        {children}
+
+        <main className="min-h-screen">{children}</main>
+
         <Footer />
         <WhatsApp />
       </body>
