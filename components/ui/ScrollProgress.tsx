@@ -3,27 +3,27 @@
 import { useEffect, useState } from "react";
 
 export default function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    const update = () => {
+    const onScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight =
         document.documentElement.scrollHeight - window.innerHeight;
 
-      const scrolled = (scrollTop / docHeight) * 100;
-      setProgress(scrolled);
+      const progress = (scrollTop / docHeight) * 100;
+      setWidth(progress);
     };
 
-    window.addEventListener("scroll", update);
-    return () => window.removeEventListener("scroll", update);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 z-[60] h-[2px] w-full bg-transparent">
+    <div className="fixed top-0 left-0 w-full h-[2px] z-[9999] bg-transparent">
       <div
         className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 transition-all"
-        style={{ width: `${progress}%` }}
+        style={{ width: `${width}%` }}
       />
     </div>
   );
