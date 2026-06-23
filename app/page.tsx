@@ -1,7 +1,11 @@
+"use client";
+
+import Hero from "@/components/Hero";
+
 export default function Page() {
   return (
-    <div style={{ padding: 40, color: "white", fontSize: 30 }}>
-      PAGE IS WORKING
+    <div>
+      <Hero />
     </div>
   );
 }
