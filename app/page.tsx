@@ -8,6 +8,12 @@ export default function Home() {
       <Hero />
       <Stats />
       <Services />
+
+      {/* Add later */}
+      {/* TechnologyStack */}
+      {/* CaseStudies */}
+      {/* WhyChooseUs */}
+      {/* CTA */}
     </main>
   );
 }
