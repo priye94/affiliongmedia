@@ -9,20 +9,20 @@ export default function Hero() {
       <div className="max-w-4xl">
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl md:text-7xl font-bold"
         >
-          AI-Powered Growth Infrastructure Company
+          Build AI-Powered Growth Systems
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="mt-6 text-slate-400 text-lg"
+          className="mt-6 text-slate-400"
         >
-          We build automation, SaaS systems, and marketing engines that scale revenue.
+          SaaS • Automation • Marketing Infrastructure
         </motion.p>
 
       </div>

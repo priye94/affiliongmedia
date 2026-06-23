@@ -1,6 +1,3 @@
-import PageTransition from "@/components/PageTransition";
-import InteractiveLayer from "@/components/InteractiveLayer";
-import ScrollProgress from "@/components/ScrollProgress";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsApp from "@/components/WhatsApp";
@@ -14,17 +11,17 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#050816] text-white antialiased overflow-x-hidden">
 
-        <ScrollProgress />
-        <InteractiveLayer />
+        {/* GLOBAL BACKGROUND ONLY (SAFE) */}
+        <div className="fixed inset-0 -z-10 bg-[#050816]" />
 
         <Navbar />
 
-        <PageTransition>
-          {children}
-        </PageTransition>
+        {/* REMOVE COMPLEX WRAPPERS TEMPORARILY */}
+        <main>{children}</main>
 
         <Footer />
         <WhatsApp />
+
       </body>
     </html>
   );
