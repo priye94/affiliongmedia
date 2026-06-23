@@ -5,9 +5,12 @@ import Footer from "@/components/Footer";
 import WhatsApp from "@/components/WhatsApp";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://affiliongmedia.com"),
+
   title: "Affilion G Media | Advertising & Digital Marketing Agency",
   description:
     "Affilion G Media is a premium advertising and digital marketing agency specializing in branding, social media marketing, SEO, and business growth strategies.",
+
   keywords: [
     "advertising agency",
     "digital marketing",
@@ -18,8 +21,9 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title: "Affilion G Media",
-    description: "We build brands that grow businesses.",
+    title: "Affilion G Media | Advertising & Digital Marketing Agency",
+    description:
+      "We build brands that grow businesses with powerful digital marketing strategies.",
     url: "https://affiliongmedia.com",
     siteName: "Affilion G Media",
     type: "website",
@@ -35,8 +39,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Affilion G Media",
-    description: "We build brands that grow businesses.",
+    title: "Affilion G Media | Advertising & Digital Marketing Agency",
+    description:
+      "We build brands that grow businesses with powerful digital marketing strategies.",
     images: ["/og-image.jpg"],
   },
 };

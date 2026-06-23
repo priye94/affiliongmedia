@@ -5,10 +5,6 @@ export async function POST(req: Request) {
   try {
     const data = await req.json();
 
-    // DEBUG (temporary - remove after fix)
-    console.log("SUPABASE_URL:", process.env.SUPABASE_URL);
-    console.log("SUPABASE_KEY exists:", !!process.env.SUPABASE_KEY);
-
     const { error } = await supabase.from("leads").insert([
       {
         name: data.name,
@@ -24,7 +20,7 @@ export async function POST(req: Request) {
 
     return Response.json({ success: true });
   } catch (error) {
-    console.error(error);
+    console.error("Leads API error:", error);
 
     return Response.json(
       { success: false, message: "Something went wrong" },
