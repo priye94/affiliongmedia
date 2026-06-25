@@ -23,7 +23,7 @@ export default function Page() {
       <WhyChooseUs />
       <ClientsSection />
       <CaseStudies />
-      <PricingSection />
+      {/* <PricingSection /> */}
       <ContactSection />
       <FooterSection />
     </>
