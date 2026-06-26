@@ -9,21 +9,25 @@ export default function ContactForm() {
 
   return (
     <section id="contact-form" className="relative py-28">
-
       <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
+        <div className="text-center">
+          <span className="inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2 text-sm font-semibold text-cyan-300">
+            CONTACT FORM
+          </span>
 
-        <Reveal>
-          <h3 className="text-4xl font-bold text-center text-white">
-            Let’s Build Something
-            <span className="text-cyan-400"> Powerful</span>
-          </h3>
-        </Reveal>
+          <Reveal>
+            <h3 className="mt-5 text-4xl font-bold text-center text-white">
+              Let’s Build Something
+              <span className="text-cyan-400"> Amazing</span>
+            </h3>
+          </Reveal>
 
-        <Reveal delay={0.1}>
-          <p className="mt-4 text-center text-slate-400">
-            Share your goals and we’ll design a growth system for you.
-          </p>
-        </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-4 text-center text-slate-400">
+              Share your goals and we’ll design a growth system for you.
+            </p>
+          </Reveal>
+        </div>
 
         {/* FORM */}
         <Reveal delay={0.2}>
@@ -39,7 +43,6 @@ export default function ContactForm() {
               }, 1200);
             }}
           >
-
             {/* Name */}
             <input
               type="text"
@@ -63,7 +66,6 @@ export default function ContactForm() {
 
             {/* CTA */}
             <div className="flex justify-center pt-4">
-
               <MagneticButton>
                 <button
                   type="submit"
@@ -74,7 +76,8 @@ export default function ContactForm() {
                     rounded-full
                     bg-cyan-400
                     px-10 py-4
-                    font-semibold text-black
+                    font-semibold
+                    text-black
                     transition
                     hover:shadow-[0_0_40px_rgba(34,211,238,.45)]
                     disabled:opacity-60
@@ -82,18 +85,14 @@ export default function ContactForm() {
                 >
                   {loading ? "Sending..." : "Send Message"}
 
-                  {/* light sweep */}
+                  {/* Light sweep */}
                   <span className="absolute inset-0 -translate-x-full bg-white/30 transition-transform duration-700 hover:translate-x-full" />
                 </button>
               </MagneticButton>
-
             </div>
-
           </form>
         </Reveal>
-
       </div>
-
     </section>
   );
 }
