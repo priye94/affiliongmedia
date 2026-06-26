@@ -1,76 +1,134 @@
+import Image from "next/image";
+import Link from "next/link";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaXTwitter,
+  FaYoutube,
+} from "react-icons/fa6";
+
 export default function FooterSection() {
   return (
-    <footer className="border-t border-white/10 bg-[#050816]">
+    <footer className="bg-[#050816] border-t border-white/10">
 
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      {/* MAIN CONTAINER (FIXED SPACING) */}
+      <div className="max-w-7xl mx-auto px-6 pt-20 pb-4">
 
         {/* TOP GRID */}
-        <div className="grid md:grid-cols-4 gap-10">
-
-          {/* BRAND */}
-          <div>
-            <h2 className="text-xl font-bold">
-              Affilion G Media
-            </h2>
-
-            <p className="text-slate-400 mt-4 text-sm leading-6">
-              AI-powered growth infrastructure company building SaaS systems,
-              automation, and performance marketing engines.
-            </p>
-          </div>
-
-          {/* PRODUCT */}
-          <div>
-            <h3 className="font-semibold mb-4">Product</h3>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li>AI Systems</li>
-              <li>Automation</li>
-              <li>Growth Engine</li>
-              <li>SaaS Tools</li>
-            </ul>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 
           {/* COMPANY */}
+          <div className="lg:col-span-2">
+            <Link href="/">
+              <Image
+                src="/images/logo/logo-headercrop1.png"
+                alt="AffilionGMedia"
+                width={220}
+                height={60}
+                className="h-14 w-auto"
+                priority
+              />
+            </Link>
+
+            <p className="mt-6 text-slate-400 leading-7 max-w-md">
+              AffilionGMedia builds AI-powered SaaS platforms, intelligent automation,
+              performance marketing, and digital growth systems that help businesses scale faster.
+            </p>
+
+            {/* FOLLOW US */}
+            <div className="mt-8">
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Follow Us
+              </h3>
+
+              <div className="flex gap-3">
+                {[
+                  { href: "https://linkedin.com/company/affiliongmedia", icon: <FaLinkedinIn /> },
+                  { href: "https://x.com/affiliongmedia", icon: <FaXTwitter /> },
+                  { href: "https://facebook.com/affiliongmedia", icon: <FaFacebookF /> },
+                  { href: "https://instagram.com/affiliongmedia", icon: <FaInstagram /> },
+                  { href: "https://youtube.com/@affiliongmedia", icon: <FaYoutube /> },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 rounded-xl bg-white/5 hover:bg-cyan-500 transition-all duration-300 flex items-center justify-center text-lg"
+                  >
+                    {item.icon}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* QUICK LINKS */}
           <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li>About</li>
-              <li>Case Studies</li>
-              <li>Careers</li>
-              <li>Contact</li>
+            <h3 className="text-lg font-semibold text-white mb-5">
+              Quick Links
+            </h3>
+
+            <ul className="space-y-3 text-slate-400">
+              <li><Link href="/" className="hover:text-white">Home</Link></li>
+              <li><Link href="/about" className="hover:text-white">About</Link></li>
+              <li><Link href="/services" className="hover:text-white">Services</Link></li>
+              <li><Link href="/contact" className="hover:text-white">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* LEGAL */}
+          {/* SERVICES */}
           <div>
-            <h3 className="font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li>Privacy Policy</li>
-              <li>Terms</li>
-              <li>Refund Policy</li>
+            <h3 className="text-lg font-semibold text-white mb-5">
+              Services
+            </h3>
+
+            <ul className="space-y-3 text-slate-400">
+              <li>Brand Strategy</li>
+              <li>Social Media Marketing</li>
+              <li>SEO Optimization</li>
+              <li>Outdoor Advertising</li>
+            </ul>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-5">
+              Contact Us
+            </h3>
+
+            <ul className="space-y-3 text-slate-400">
+              <li>
+                <a
+                  href="mailto:support@affiliongmedia.com"
+                  className="hover:text-white"
+                >
+                  support@affiliongmedia.com
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="tel:+919654267890"
+                  className="hover:text-white"
+                >
+                  +91 9654267890
+                </a>
+              </li>
             </ul>
           </div>
 
         </div>
 
-        {/* DIVIDER */}
-        <div className="border-t border-white/10 my-10"></div>
-
-        {/* BOTTOM BAR */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-
-          <p>
-            © {new Date().getFullYear()} Affilion G Media. All rights reserved.
+        {/* BOTTOM BAR (NO EXTRA SPACE FIXED) */}
+        <div className="border-t border-white/10 mt-10 pt-4 flex flex-col items-center text-center text-sm text-slate-500">
+          <p className="m-0">
+            © {new Date().getFullYear()} <strong>AffilionGMedia</strong>. All Rights Reserved.
           </p>
-
-          <p>
-            Built with AI • SaaS Infrastructure • Digital Growth Systems
-          </p>
-
         </div>
 
       </div>
-
     </footer>
   );
 }

@@ -1,98 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Container from "@/components/ui/Container";
-import SectionHeading from "@/components/ui/SectionHeading";
-
-import {
-  FiCpu,
-  FiCode,
-  FiCloud,
-  FiBarChart2,
-  FiSearch,
-  FiDatabase,
-} from "react-icons/fi";
 
 const services = [
-  { icon: FiCpu, title: "AI Automation" },
-  { icon: FiCode, title: "SaaS Development" },
-  { icon: FiCloud, title: "Cloud Infrastructure" },
-  { icon: FiBarChart2, title: "Performance Marketing" },
-  { icon: FiSearch, title: "SEO Systems" },
-  { icon: FiDatabase, title: "Analytics Dashboards" },
+  "SEO Optimization",
+  "Performance Marketing",
+  "Brand Strategy",
+  "Paid Advertising",
+  "Social Media Growth",
+  "Conversion Optimization",
 ];
 
 export default function ServicesSection() {
   return (
-    <section className="relative py-32 px-6 overflow-hidden">
+    <section className="relative py-28 bg-[#0b0f19] text-white">
 
-      {/* 🖼️ BACKGROUND IMAGE */}
-      <div
-        className="absolute inset-0 bg-center bg-cover"
-        style={{
-          backgroundImage: "url('/images/services.png')",
-        }}
-      />
+      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,_#00C2A8_0%,_transparent_60%)]" />
 
-      {/* 🌑 DARK OVERLAY */}
-      <div className="absolute inset-0 bg-[#050816]/75" />
+      <div className="relative mx-auto max-w-7xl px-6">
 
-      {/* 🌊 GLOW LAYERS */}
-      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/15 blur-[160px]" />
-      <div className="absolute bottom-[-200px] right-[-120px] w-[500px] h-[500px] bg-blue-500/15 blur-[160px]" />
+        <h2 className="text-center text-5xl font-bold">
+          Our Services
+        </h2>
 
-      {/* CONTENT */}
-      <div className="relative z-10">
+        <p className="mt-4 text-center text-gray-400">
+          Everything you need to scale your business
+        </p>
 
-        <Container>
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-          {/* HEADING */}
-          <SectionHeading
-            label="Services"
-            title="Growth Engineering Stack"
-            description="Technology + Marketing unified into one system."
-          />
+          {services.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl hover:border-[#00C2A8]/40 transition"
+            >
+              <h3 className="text-lg font-semibold">{item}</h3>
+              <p className="mt-2 text-sm text-gray-400">
+                High-performance solution designed to grow your brand.
+              </p>
+            </motion.div>
+          ))}
 
-          {/* GRID */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-
-            {services.map((service, i) => {
-              const Icon = service.icon;
-
-              return (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{
-                    duration: 0.5,
-                    delay: i * 0.1,
-                  }}
-                  className="
-                    backdrop-blur-xl
-                    bg-white/5
-                    border border-white/10
-                    rounded-2xl
-                    p-8
-                    hover:border-cyan-400/30
-                    hover:scale-[1.02]
-                    transition-all duration-300
-                  "
-                >
-                  <Icon className="text-cyan-400 text-4xl mb-5" />
-
-                  <h3 className="text-xl font-semibold text-white">
-                    {service.title}
-                  </h3>
-
-                </motion.div>
-              );
-            })}
-
-          </div>
-
-        </Container>
+        </div>
 
       </div>
     </section>

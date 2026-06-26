@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const cases = [
   {
@@ -18,15 +19,31 @@ const cases = [
 ];
 
 export default function CaseStudies() {
+  const router = useRouter();
+
   return (
-    <section className="max-w-6xl mx-auto mt-32 px-6">
+    <section className="max-w-6xl mx-auto mt-32 mb-32 px-6">
+      {/* Header */}
+      <div className="text-center">
+        <h2 className="text-4xl font-bold">
+          Proven Systems. Real Results.
+        </h2>
 
-      <h2 className="text-4xl font-bold text-center">
-        Proven Systems. Real Results.
-      </h2>
+        <p className="mt-4 text-white/60 max-w-2xl mx-auto">
+          Powered by <span className="text-white">Affilion GMedia</span> growth frameworks
+          built to scale acquisition, revenue, and automation.
+        </p>
 
+        {/* Trust badge */}
+        <div className="flex justify-center mt-4">
+          <span className="text-xs uppercase tracking-widest text-white/40 border border-white/10 px-3 py-1 rounded-full">
+            100+ Systems Deployed • Performance-Based Growth Engineering
+          </span>
+        </div>
+      </div>
+
+      {/* Case Cards */}
       <div className="mt-12 grid md:grid-cols-3 gap-6">
-
         {cases.map((item, i) => (
           <motion.div
             key={item.title}
@@ -40,9 +57,25 @@ export default function CaseStudies() {
             <h3 className="text-2xl font-bold mt-3">{item.result}</h3>
           </motion.div>
         ))}
-
       </div>
 
+      {/* CTA */}
+      <div className="mt-14 text-center">
+        <p className="text-white/60 mb-4">
+          Want a system like this built for your business?
+        </p>
+
+        <button
+          onClick={() => router.push("/contact")}
+          className="px-6 py-3 rounded-full bg-white text-black font-semibold hover:scale-105 transition"
+        >
+          Get a Growth Audit
+        </button>
+
+        <p className="text-xs text-white/40 mt-3">
+          Limited onboarding slots available
+        </p>
+      </div>
     </section>
   );
 }

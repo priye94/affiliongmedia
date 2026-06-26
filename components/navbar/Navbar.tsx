@@ -1,108 +1,255 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
-export default function Navbar() {
+export default function TopNav() {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
+
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "HOME", href: "/" },
+    { name: "ABOUT", href: "/about" },
+    { name: "SERVICES", href: "/services" },
+    { name: "CONTACT US", href: "/contact" },
   ];
 
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-5">
-      
-      <motion.nav
-        animate={{
-          scale: scrolled ? 0.96 : 1,
-          y: scrolled ? 0 : 0,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 120,
-          damping: 18,
-        }}
-        className="
-          glass
-          flex items-center justify-between
-          w-[92%] max-w-[1050px]
-          px-6 py-3
-          rounded-full
-          backdrop-blur-2xl
-        "
+    <>
+      {/* HEADER */}
+      <header
+        className={`
+        fixed
+        inset-x-0
+        top-0
+        z-50
+        h-20
+        transition-all
+        duration-300
+
+        ${
+          scrolled
+            ? `
+              bg-[#050816]/60
+              backdrop-blur-xl
+              border-b
+              border-white/10
+              shadow-[0_10px_40px_rgba(0,0,0,.25)]
+            `
+            : `
+              bg-transparent
+              border-transparent
+            `
+        }
+        `}
       >
 
-        {/* LOGO */}
-        <Link
-          href="/"
-          className="text-white font-semibold tracking-tight text-[15px]"
+        <div
+          className="
+          mx-auto
+          flex
+          h-full
+          max-w-7xl
+          items-center
+          justify-between
+          px-6
+          lg:px-8
+          "
         >
-          Affilion G Media
-        </Link>
 
-        {/* LINKS */}
-        <div className="hidden md:flex items-center gap-7 text-[13.5px]">
-          {navItems.map((item) => {
+          {/* LOGO */}
+          <Link href="/">
+            <Image
+              src="/images/logo/logo-headercrop1.png"
+              alt="Affilion G Media"
+              width={250}
+              height={70}
+              priority
+              className="h-12 w-auto"
+            />
+          </Link>
+
+
+
+          {/* DESKTOP NAV */}
+          <nav className="hidden items-center gap-10 md:flex">
+
+            {navItems.map((item) => {
+
+              const active = pathname === item.href;
+
+              return (
+
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`
+                    group
+                    relative
+                    text-sm
+                    font-semibold
+                    tracking-wide
+                    transition
+                    duration-300
+
+                    ${
+                      active
+                        ? "text-cyan-300"
+                        : "text-white/80 hover:text-cyan-300"
+                    }
+                  `}
+                >
+
+                  {item.name}
+
+
+                  <span
+                    className={`
+                    absolute
+                    -bottom-2
+                    left-0
+                    h-[2px]
+                    rounded-full
+                    bg-gradient-to-r
+                    from-cyan-300
+                    to-blue-500
+                    shadow-[0_0_12px_rgba(34,211,238,.7)]
+                    transition-all
+                    duration-300
+
+                    ${
+                      active
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    }
+                    `}
+                  />
+
+                </Link>
+
+              );
+
+            })}
+
+          </nav>
+
+
+
+          {/* MOBILE BUTTON */}
+          <button
+            onClick={() => setMobileOpen(true)}
+            className="
+            text-white/90
+            hover:text-cyan-300
+            transition
+            md:hidden
+            "
+          >
+            <Menu size={28}/>
+          </button>
+
+
+        </div>
+
+      </header>
+
+
+      {/* OFFSET */}
+      <div className="h-20" />
+
+
+
+      {/* MOBILE MENU */}
+
+      <div
+        className={`
+        fixed
+        inset-0
+        z-[60]
+        bg-[#050816]/95
+        backdrop-blur-xl
+        transition-all
+        duration-300
+        md:hidden
+
+        ${
+          mobileOpen
+            ? "visible opacity-100"
+            : "invisible opacity-0"
+        }
+        `}
+      >
+
+        <div className="flex justify-end p-6">
+
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="
+            text-white
+            hover:text-cyan-300
+            transition
+            "
+          >
+            <X size={30}/>
+          </button>
+
+        </div>
+
+
+        <nav className="mt-16 flex flex-col items-center gap-8">
+
+          {navItems.map((item)=>{
+
             const active = pathname === item.href;
 
             return (
+
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative group text-slate-300 hover:text-white transition"
+                onClick={()=>setMobileOpen(false)}
+                className={`
+                text-xl
+                font-semibold
+                transition
+
+                ${
+                  active
+                    ? "text-cyan-300"
+                    : "text-white/90 hover:text-cyan-300"
+                }
+                `}
               >
                 {item.name}
-
-                {/* underline animation */}
-                <span
-                  className={`
-                    absolute left-0 -bottom-1 h-[1.5px]
-                    bg-cyan-400 rounded-full
-                    transition-all duration-300
-                    ${active ? "w-full" : "w-0 group-hover:w-full"}
-                  `}
-                />
               </Link>
+
             );
+
           })}
-        </div>
 
-        {/* CTA */}
-        <Link
-          href="/contact"
-          className="
-            hidden md:flex
-            px-4 py-2
-            text-[13px]
-            rounded-full
-            bg-gradient-to-r from-cyan-500 to-blue-500
-            text-black font-medium
-            hover:scale-[1.04]
-            transition
-          "
-        >
-          Book Call
-        </Link>
+        </nav>
 
-        {/* MOBILE */}
-        <div className="md:hidden text-white text-xl">
-          ☰
-        </div>
 
-      </motion.nav>
-    </header>
+      </div>
+
+    </>
   );
 }
