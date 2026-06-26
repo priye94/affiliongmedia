@@ -1,55 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { Hero, ContactForm, FAQ, WaveDivider } from "@/components/contact";
+import { fadeIn } from "@/components/contact/motion";
+import FooterSection from "@/components/sections/FooterSection";
 
-export default function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
-
-  const submit = async () => {
-    await fetch("/api/leads", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
-
-    alert("We will contact you soon!");
-  };
-
+export default function ContactPage() {
   return (
-    <div className="max-w-xl mx-auto p-10">
-      <input
-        placeholder="Name"
-        className="input"
-        onChange={(e) => setForm({ ...form, name: e.target.value })}
-      />
-      <input
-        placeholder="Phone"
-        className="input"
-        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-      />
-      <input
-        placeholder="Email"
-        className="input"
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-      />
-      <textarea
-        placeholder="Message"
-        className="input"
-        onChange={(e) =>
-          setForm({ ...form, message: e.target.value })
-        }
-      />
+    <motion.main
+      initial="hidden"
+      animate="show"
+      variants={fadeIn}
+      className="bg-[#090B12] text-white overflow-hidden"
+    >
+      <Hero />
 
-      <button onClick={submit} className="bg-blue-500 px-6 py-3 mt-4">
-        Send
-      </button>
-    </div>
+      <WaveDivider />
+
+      <ContactForm />
+
+      <WaveDivider flip />
+
+      <FAQ />
+      <FooterSection />
+    </motion.main>
   );
 }
