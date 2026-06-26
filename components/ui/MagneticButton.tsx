@@ -8,30 +8,49 @@ export default function MagneticButton({
   children: React.ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const frame = useRef<number | null>(null);
 
-  const handleMove = (e: any) => {
+  const handleMove = (e: React.MouseEvent) => {
     const el = ref.current;
     if (!el) return;
 
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
+    if (frame.current) cancelAnimationFrame(frame.current);
 
-    el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    frame.current = requestAnimationFrame(() => {
+      const rect = el.getBoundingClientRect();
+
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      // smoother & more controlled movement
+      const moveX = x * 0.25;
+      const moveY = y * 0.25;
+
+      el.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(1.02)`;
+    });
   };
 
-  const reset = () => {
-    if (ref.current) {
-      ref.current.style.transform = "translate(0,0)";
-    }
+  const handleLeave = () => {
+    const el = ref.current;
+    if (!el) return;
+
+    if (frame.current) cancelAnimationFrame(frame.current);
+
+    el.style.transform = `translate3d(0px, 0px, 0) scale(1)`;
   };
 
   return (
     <div
       ref={ref}
       onMouseMove={handleMove}
-      onMouseLeave={reset}
-      className="transition-transform duration-200"
+      onMouseLeave={handleLeave}
+      className="
+        inline-flex
+        transition-transform
+        duration-300
+        ease-out
+        will-change-transform
+      "
     >
       {children}
     </div>

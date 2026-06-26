@@ -1,18 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Hero, ContactForm, FAQ, WaveDivider } from "@/components/contact";
-import { fadeIn } from "@/components/contact/motion";
+import CursorGlow from "@/components/ui/CursorGlow";
+import Hero from "@/components/contact/Hero";
+import ContactForm from "@/components/contact/ContactForm";
+import FAQ from "@/components/contact/FAQ";
+import WaveDivider from "@/components/contact/WaveDivider";
 import FooterSection from "@/components/sections/FooterSection";
 
 export default function ContactPage() {
   return (
-    <motion.main
-      initial="hidden"
-      animate="show"
-      variants={fadeIn}
-      className="bg-[#090B12] text-white overflow-hidden"
-    >
+    <main className="relative bg-[#070A12] text-white overflow-hidden">
+      <CursorGlow />
+
       <Hero />
 
       <WaveDivider />
@@ -23,6 +22,6 @@ export default function ContactPage() {
 
       <FAQ />
       <FooterSection />
-    </motion.main>
+    </main>
   );
 }
