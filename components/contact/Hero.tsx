@@ -47,7 +47,7 @@ export default function Hero() {
             >
               Get in <span className="text-cyan-400">Touch</span> with
               <br />
-              AffliogMedia
+              Afflion G Media
             </motion.h1>
 
             {/* Description */}

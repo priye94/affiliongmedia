@@ -13,7 +13,7 @@ export default function Hero() {
 
         <Reveal>
           <h1 className="text-6xl lg:text-7xl font-bold leading-tight">
-            About <span className="text-cyan-400">AffliogMedia</span>
+            About <span className="text-cyan-400">Afflion G Media</span>
           </h1>
         </Reveal>
 
