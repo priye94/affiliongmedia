@@ -26,6 +26,8 @@ export default function TopNav() {
 
   const navItems = [
     { name: "HOME", href: "/" },
+    { name: "ADVERTISER", href: "/advertiser" },
+    { name: "PUBLISHER", href: "/publisher" },
     { name: "ABOUT", href: "/about" },
     { name: "SERVICES", href: "/services" },
     { name: "CONTACT US", href: "/contact" },

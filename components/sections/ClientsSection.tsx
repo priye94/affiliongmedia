@@ -70,7 +70,7 @@ export default function Brands() {
           </h2>
 
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-sm leading-7">
-            Affiliong Media powers performance systems for global companies
+            Affilion G Media powers performance systems for global companies
             through scalable marketing infrastructure.
           </p>
         </div>

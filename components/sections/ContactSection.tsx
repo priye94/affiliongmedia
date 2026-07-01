@@ -41,7 +41,7 @@
               </h2>
 
               <p className="mt-6 max-w-md leading-8 text-gray-300">
-                Let's discuss how Affiliong can elevate your business through
+                Let's discuss how Affilion G Media can elevate your business through
                 innovative digital marketing solutions. Connect with us today
                 for a free consultation.
               </p>
@@ -63,7 +63,7 @@
                     </p>
 
                     <p className="text-lg font-medium text-white">
-                      support@affiliong.com
+                      support@affiliongmedia.com
                     </p>
 
                   </div>
@@ -85,7 +85,7 @@
                     </p>
 
                     <p className="text-lg font-medium text-white">
-                      +91 98765 43210
+                      +91 92633 71302
                     </p>
 
                   </div>

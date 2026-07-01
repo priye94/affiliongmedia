@@ -52,7 +52,7 @@ export default function HeroSection() {
 
 
           <p className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-cyan-300">
-            AFFILIONG MEDIA
+            AFFILION G MEDIA
           </p>
 
 
@@ -253,7 +253,7 @@ export default function HeroSection() {
 
             <Image
               src="/images/hero-banner1.png"
-              alt="Affiliong Media"
+              alt="Affilion G Media"
               fill
               priority
               className="object-contain"

@@ -63,11 +63,11 @@ export default function WhyChooseUs() {
         >
 
           <p className="uppercase tracking-[6px] text-cyan-400 text-xs font-semibold mb-4">
-            WHY AFFILIONG MEDIA
+            WHY AFFILION G MEDIA
           </p>
 
           <h2 className="text-white text-4xl md:text-5xl font-bold">
-            Why Choose Affiliong Media?
+            Why Choose Affilion G Media?
           </h2>
 
           <p className="text-gray-400 mt-5 max-w-3xl mx-auto leading-8 text-[15px]">

@@ -23,7 +23,7 @@ export default function FooterSection() {
             <Link href="/">
               <Image
                 src="/images/logo/logo-headercrop1.png"
-                alt="AffilionGMedia"
+                alt="Affilion G Media"
                 width={220}
                 height={60}
                 className="h-14 w-auto"
@@ -32,7 +32,7 @@ export default function FooterSection() {
             </Link>
 
             <p className="mt-6 text-slate-400 leading-7 max-w-md">
-              AffilionGMedia builds AI-powered SaaS platforms, intelligent automation,
+              Affilion G Media builds AI-powered SaaS platforms, intelligent automation,
               performance marketing, and digital growth systems that help businesses scale faster.
             </p>
 
@@ -113,7 +113,7 @@ export default function FooterSection() {
                   href="tel:+919654267890"
                   className="hover:text-white"
                 >
-                  +91 9654267890
+                  +91 92633 71302
                 </a>
               </li>
             </ul>
@@ -124,7 +124,7 @@ export default function FooterSection() {
         {/* BOTTOM BAR (NO EXTRA SPACE FIXED) */}
         <div className="border-t border-white/10 mt-10 pt-4 flex flex-col items-center text-center text-sm text-slate-500">
           <p className="m-0">
-            © {new Date().getFullYear()} <strong>AffilionGMedia</strong>. All Rights Reserved.
+            © {new Date().getFullYear()} <strong>Affilion G Media</strong>. All Rights Reserved.
           </p>
         </div>
 

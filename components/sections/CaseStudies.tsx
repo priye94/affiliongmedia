@@ -30,7 +30,7 @@ export default function CaseStudies() {
         </h2>
 
         <p className="mt-4 text-white/60 max-w-2xl mx-auto">
-          Powered by <span className="text-white">Affilion GMedia</span> growth frameworks
+          Powered by <span className="text-white">Affilion G Media</span> growth frameworks
           built to scale acquisition, revenue, and automation.
         </p>
 
