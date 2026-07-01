@@ -27,26 +27,38 @@ const features = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-indigo-950 via-slate-950 to-slate-900 text-white">
-      {/* Background Blur */}
-      <div className="absolute -top-32 left-0 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-indigo-500/20 blur-3xl" />
+    <section className="relative overflow-hidden bg-slate-950 text-white">
+      {/* UPDATED BACKGROUND (matched with contact/publisher theme) */}
+
+      {/* Aurora glow (cyan + blue like contact hero) */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.12),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.12),transparent_40%)]" />
+
+      {/* floating glow blobs */}
+      <div className="absolute -top-40 left-10 h-[500px] w-[500px] animate-pulse rounded-full bg-cyan-500/10 blur-[160px]" />
+      <div className="absolute bottom-0 right-0 h-[500px] w-[500px] animate-pulse rounded-full bg-blue-600/10 blur-[180px]" />
+
+      {/* subtle fade */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#090B12]/40" />
 
       <div className="container relative mx-auto px-6 py-28 lg:py-36">
         <div className="grid items-center gap-16 lg:grid-cols-2">
-          {/* Left */}
+
+          {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-flex rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 text-sm font-medium text-indigo-300">
-              Trusted by Global Brands
-            </span>
+            {/* badge */}
+            <div className="pt-2">
+  <span className="inline-flex rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 text-sm font-medium text-indigo-300">
+    Trusted by Global Brands
+  </span>
+</div>
 
             <h1 className="mt-6 text-5xl font-extrabold leading-tight lg:text-7xl">
               Scale Your Business with
-              <span className="block bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 Performance Marketing
               </span>
             </h1>
@@ -60,7 +72,7 @@ export default function Hero() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center rounded-xl bg-blue-600 px-7 py-4 font-semibold transition hover:bg-blue-700"
+                className="inline-flex items-center rounded-xl bg-cyan-500 px-7 py-4 font-semibold text-black transition hover:bg-cyan-400"
               >
                 Start Campaign
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -74,24 +86,24 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="mt-12 grid grid-cols-3 gap-6">
+            <div className="mt-12 grid grid-cols-3 gap-6 pb-6">
               {features.map((feature) => (
                 <div key={feature.title}>
-                  <feature.icon className="mb-3 h-8 w-8 text-blue-400" />
+                  <feature.icon className="mb-3 h-8 w-8 text-cyan-400" />
                   <p className="text-sm text-slate-300">{feature.title}</p>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right */}
+          {/* RIGHT (UNCHANGED AS REQUESTED) */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Main Dashboard */}
+            {/* ===== DO NOT CHANGE THIS SECTION ===== */}
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-2xl">
               <div className="mb-8 flex items-center justify-between">
                 <h3 className="text-xl font-bold">Campaign Overview</h3>
@@ -171,15 +183,10 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating Card */}
+            {/* Floating Card (unchanged) */}
             <motion.div
-              animate={{
-                y: [-10, 10, -10],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 5,
-              }}
+              animate={{ y: [-10, 10, -10] }}
+              transition={{ repeat: Infinity, duration: 5 }}
               className="absolute -right-6 -top-8 rounded-2xl border border-white/10 bg-slate-900/90 p-5 backdrop-blur-xl shadow-xl"
             >
               <p className="text-sm text-slate-400">Active Campaigns</p>
@@ -194,5 +201,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-);
+  );
 }

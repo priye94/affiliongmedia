@@ -18,12 +18,13 @@ export default function SmartCTA() {
     <a
       href="/contact"
       className={`
-        fixed bottom-6 right-6 z-50
         px-5 py-3 rounded-full
         font-medium shadow-lg transition-all duration-300
-        ${scrolled
-          ? "bg-cyan-500 text-black scale-100 opacity-100"
-          : "bg-white/10 text-white scale-90 opacity-80"
+        whitespace-nowrap
+        ${
+          scrolled
+            ? "bg-cyan-500 text-black scale-100 opacity-100"
+            : "bg-white/10 text-white scale-90 opacity-80"
         }
       `}
     >
